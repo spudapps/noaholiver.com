@@ -30,12 +30,8 @@
 
     <script>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
+        window.netlifyIdentity.init({
+          APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
         });
       }
     </script>
