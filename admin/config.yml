@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Configuration"
+        name: "config"
+        file: "_config.yml"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Theme", name: "remote_theme", widget: "string", hint: "e.g., pages-themes/hacker@v0.2.0"}
+```
+
+**Result:** Your relative can change the theme by:
+1. Logging into Decap CMS (`yourdomain.com/admin`)
+2. Going to "Site Settings" → "Configuration"
+3. Editing the "Theme" field
+4. Clicking "Publish"
+5. Netlify automatically rebuilds with new theme
+
+## Available Remote Themes
+
+Here are some GitHub Pages-compatible themes they can easily switch between:
+```
+pages-themes/hacker@v0.2.0
+pages-themes/minimal@v0.2.0
+pages-themes/cayman@v0.2.0
+pages-themes/architect@v0.2.0
+pages-themes/slate@v0.2.0
+pages-themes/leap-day@v0.2.0
+pages-themes/midnight@v0.2.0
+pages-themes/dinky@v0.2.0
