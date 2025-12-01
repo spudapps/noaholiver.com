@@ -15,6 +15,11 @@
     <script>
       // Redirect unauthenticated visitors to login
       if (window.netlifyIdentity) {
+        // Tell the widget which Netlify site to use
+        window.netlifyIdentity.init({
+          APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
+        });
+        
         window.netlifyIdentity.on("init", user => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {
