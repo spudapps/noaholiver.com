@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<h2>Latest Blog Posts</h2>
+
+{% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No blog posts yet.</p>
+{% endif %}

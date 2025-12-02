@@ -1,3 +1,8 @@
+---
+layout: home
+title: Home
+---
+
 # Heading 1
 
 Some content about this website.
