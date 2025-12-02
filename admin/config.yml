@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
   branch: main
+  identity_url: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
+  gateway_url: "https://tubular-jelly-6f9063.netlify.app/.netlify/git"
 
 media_folder: "assets/images"
 public_folder: "/assets/images"

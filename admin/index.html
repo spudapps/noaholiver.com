@@ -6,28 +6,34 @@
     <title>Content Manager</title>
 
     <!-- Netlify Identity for login -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity.js"></script>
 
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <script>
-      // Redirect unauthenticated visitors to login
-      if (window.netlifyIdentity) {
-        // Tell the widget which Netlify site to use
-        window.netlifyIdentity.init({
+      // Initialize Netlify Identity for external domain hosting
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          netlifyIdentity.init({
+            APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
+          });
+        });
+      } else {
+        netlifyIdentity.init({
           APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
         });
-        
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.reload();
-            });
-          }
-        });
       }
+
+      // Redirect unauthenticated visitors to login
+      netlifyIdentity.on("init", user => {
+        if (!user) {
+          netlifyIdentity.on("login", () => {
+            document.location.reload();
+          });
+        }
+      });
     </script>
   </body>
 </html>
