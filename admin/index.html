@@ -4,27 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-
+  </head>
+  <body>
     <!-- Netlify Identity for login -->
     <script src="https://identity.netlify.com/v1/netlify-identity.js"></script>
 
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </head>
-  <body>
+
     <script>
       // Initialize Netlify Identity for external domain hosting
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function () {
-          netlifyIdentity.init({
-            APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
-          });
-        });
-      } else {
-        netlifyIdentity.init({
-          APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
-        });
-      }
+      netlifyIdentity.init({
+        APIUrl: "https://tubular-jelly-6f9063.netlify.app/.netlify/identity"
+      });
 
       // Redirect unauthenticated visitors to login
       netlifyIdentity.on("init", user => {
